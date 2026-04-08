@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -64,7 +64,7 @@
         <div class="w-full px-4 md:px-8 relative z-10">
             <div class="max-w-6xl mx-auto text-center">
                 <div class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-purple-600 uppercase bg-purple-50 rounded-full">
-                    2024 Market Intelligence Report
+                    2026 Market Intelligence Report
                 </div>
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-[1.1] mb-8 tracking-tight">
                     10 Melbourne Suburbs Under $700k <br class="hidden lg:block">
