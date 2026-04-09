@@ -240,15 +240,28 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-950 text-white py-32">
+    <footer class="bg-gray-950 text-white pt-32 pb-16">
         <div class="w-full px-4 max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-6xl font-bold mb-10 tracking-tight text-center">Ready to build your <br> <span class="text-purple-500">Melbourne Portfolio?</span></h2>
             <p class="text-xl text-gray-400 mb-14 leading-relaxed font-light text-center">Stop guessing. Use institutional-grade data to acquire high-yield assets before the next rate cycle.</p>
-            <a href="https://api.leadconnectorhq.com/widget/booking/WFDrmJtulBGxRVD7ZIDr" class="inline-block bg-white text-gray-900 font-extrabold py-6 px-16 rounded-2xl text-xl hover:bg-purple-50 transition-all shadow-2xl hover:scale-105">
+            <a href="https://api.leadconnectorhq.com/widget/booking/WFDrmJtulBGxRVD7ZIDr" class="inline-block bg-white text-gray-900 font-extrabold py-6 px-16 rounded-2xl text-xl hover:bg-purple-50 transition-all shadow-2xl hover:scale-105 mb-16">
                 Book Free Strategy Session
             </a>
-            <div class="mt-24 pt-10 border-t border-gray-900">
-                <p class="text-gray-600 text-sm font-medium uppercase tracking-widest text-center">© 2024 Melbourne Property Strategy | Data-Driven Acquisition</p>
+            
+            <!-- Instagram Link Section -->
+            <div class="pt-8 border-t border-gray-800 flex flex-col items-center gap-6">
+                <p class="text-gray-500 font-bold uppercase tracking-widest text-xs">Follow for market updates</p>
+                <a href="https://www.instagram.com/djpropertypro?igsh=MWZxOWE1ZW4zaWhnZg%3D%3D&utm_source=qr" target="_blank" class="flex flex-col md:flex-row items-center gap-4 text-white hover:text-purple-400 transition-colors group">
+                    <!-- Updated Profile Image Integration -->
+                    <div class="relative">
+                        <!-- Converted Google Drive URL to direct image stream for the profile image -->
+                        <img src="https://lh3.googleusercontent.com/d/1cPMr-eyUQ6LkcuvrypkDWaYUrABVPrwF" alt="DJ Property Pro" class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gray-800 group-hover:border-purple-400 transition-colors object-cover shadow-lg">
+                        <div class="absolute -bottom-1 -right-1 bg-purple-600 rounded-full p-1 border-2 border-gray-950">
+                            <i data-lucide="instagram" class="w-3 h-3 md:w-4 md:h-4"></i>
+                        </div>
+                    </div>
+                    <span class="text-xl md:text-2xl font-bold tracking-tight">@djpropertypro</span>
+                </a>
             </div>
         </div>
     </footer>
