@@ -180,7 +180,8 @@
                     <p class="text-gray-500 text-lg mb-10">Access your high-growth report via the Google Drive link below.</p>
                     
                     <div class="flex flex-col gap-4 w-full">
-                        <a href="https://drive.google.com/file/d/1l4HxQyXlKuEemFisSipbisGNzbkNb6-E/view?usp=sharing" target="_blank" class="w-full bg-purple-600 text-white font-bold py-5 rounded-2xl text-lg flex items-center justify-center gap-2 hover:bg-purple-700 transition-all">
+                        <!-- UPDATED GOOGLE DRIVE LINK -->
+                        <a href="https://drive.google.com/file/d/1faXkR97OQYtdV5mjDJnWdGm0Akr_VJg_/view?usp=sharing" target="_blank" class="w-full bg-purple-600 text-white font-bold py-5 rounded-2xl text-lg flex items-center justify-center gap-2 hover:bg-purple-700 transition-all">
                             <i data-lucide="external-link" class="w-5 h-5"></i>
                             Open Report in Drive
                         </a>
@@ -197,7 +198,7 @@
                         <div class="w-20 h-20 bg-purple-100 text-purple-600 rounded-3xl rotate-3 flex items-center justify-center mx-auto mb-8 transition-transform hover:rotate-0">
                             <i data-lucide="mail-check" class="w-10 h-10"></i>
                         </div>
-                        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Access The Report</h2>
+                        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight text-center">Access The Report</h2>
                         <p class="text-gray-500 text-lg md:text-xl text-center">Submit your details to receive the Google Drive access link instantly.</p>
                     </div>
                     
