@@ -32,7 +32,6 @@
         }
     </script>
     <style>
-        /* Force the removal of any browser spacing */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         html, body {
@@ -153,7 +152,6 @@
                     </div>
                 </div>
 
-                <!-- Strategic CTA underneath preview table -->
                 <div class="pt-12 text-center">
                     <button onclick="document.getElementById('lead-capture').scrollIntoView({behavior:'smooth'})" class="w-full sm:w-auto inline-flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-5 px-12 rounded-2xl text-xl transition-all duration-300 shadow-[0_20px_50px_rgba(147,51,234,0.3)] hover:-translate-y-1">
                         Get The Full Breakdown
@@ -168,70 +166,74 @@
         </div>
     </section>
 
-    <!-- PROOF SECTION -->
-    <section class="bg-gray-50 border-y border-gray-100 py-16">
-        <div class="w-full px-6 text-center">
-            <div class="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-12 md:gap-24 lg:gap-40">
-                <div class="group">
-                    <span class="block text-4xl md:text-5xl font-extrabold text-gray-900 mb-2 transition-transform group-hover:scale-105">$150M+</span>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest text-center block">Property Secured</span>
-                </div>
-                <div class="group">
-                    <span class="block text-4xl md:text-5xl font-extrabold text-gray-900 mb-2 transition-transform group-hover:scale-105">170+</span>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest text-center block">Strategic Transactions</span>
-                </div>
-                <div class="group">
-                    <span class="block text-4xl md:text-5xl font-extrabold text-gray-900 mb-2 transition-transform group-hover:scale-105">1,000+</span>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest text-center block">Inspections Conducted</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- LEAD CAPTURE SECTION -->
-    <section id="lead-capture" class="py-24 bg-white">
+    <section id="lead-capture" class="py-24 bg-white relative">
         <div class="w-full px-4">
-            <div class="max-w-2xl mx-auto bg-white rounded-[2.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.12)] border border-gray-100 p-8 md:p-16 relative z-20">
-                <div class="text-center mb-12">
-                    <div class="w-20 h-20 bg-purple-100 text-purple-600 rounded-3xl rotate-3 flex items-center justify-center mx-auto mb-8 transition-transform hover:rotate-0">
-                        <i data-lucide="mail-check" class="w-10 h-10"></i>
-                    </div>
-                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight text-center">Access The Report</h2>
-                    <p class="text-gray-500 text-lg md:text-xl text-center">Receive the 10-suburb PDF instantly and access our strategic booking calendar.</p>
-                </div>
+            <div class="max-w-2xl mx-auto bg-white rounded-[2.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.12)] border border-gray-100 p-8 md:p-16 relative z-20 overflow-hidden">
                 
-                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){window.location.href='https://api.leadconnectorhq.com/widget/booking/WFDrmJtulBGxRVD7ZIDr';}"></iframe>
+                <!-- Success State Overlay -->
+                <div id="success-overlay" class="absolute inset-0 bg-white z-30 flex flex-col items-center justify-center p-8 text-center hidden">
+                    <div class="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-8">
+                        <i data-lucide="check-circle" class="w-12 h-12"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">You're All Set!</h2>
+                    <p class="text-gray-500 text-lg mb-10">Access your high-growth report via the Google Drive link below.</p>
+                    
+                    <div class="flex flex-col gap-4 w-full">
+                        <!-- DIRECT GOOGLE DRIVE LINK INTEGRATED -->
+                        <a href="https://drive.google.com/file/d/1l4HxQyXlKuEemFisSipbisGNzbkNb6-E/view?usp=sharing" target="_blank" class="w-full bg-purple-600 text-white font-bold py-5 rounded-2xl text-lg flex items-center justify-center gap-2 hover:bg-purple-700 transition-all">
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                            Open Report in Drive
+                        </a>
+                        <a href="https://api.leadconnectorhq.com/widget/booking/WFDrmJtulBGxRVD7ZIDr" class="w-full bg-gray-50 text-purple-600 font-bold py-5 rounded-2xl text-lg flex items-center justify-center gap-2 hover:bg-gray-100 transition-all">
+                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                            Book Strategy Session
+                        </a>
+                    </div>
+                </div>
 
-                <form 
-                    action="https://docs.google.com/forms/d/e/1FAIpQLSeH8UOfB8X2P8Ff6O7eR0PZ7vVz5Y-G_S5jN6Kx5o8p8G0yAQ/formResponse" 
-                    method="POST" 
-                    target="hidden_iframe" 
-                    onsubmit="submitted=true; document.getElementById('btn-text').innerHTML='Opening Calendar...';"
-                    class="space-y-6"
-                >
-                    <div class="space-y-2">
-                        <label class="block text-sm font-bold text-gray-700 ml-1">Full Name</label>
-                        <input type="text" name="entry.12345" placeholder="John Doe" required class="w-full px-6 py-5 border border-gray-200 rounded-2xl bg-gray-50 transition-all focus:bg-white text-lg focus:ring-4 focus:ring-purple-100">
+                <!-- Form Content -->
+                <div id="form-content">
+                    <div class="text-center mb-12">
+                        <div class="w-20 h-20 bg-purple-100 text-purple-600 rounded-3xl rotate-3 flex items-center justify-center mx-auto mb-8 transition-transform hover:rotate-0">
+                            <i data-lucide="mail-check" class="w-10 h-10"></i>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Access The Report</h2>
+                        <p class="text-gray-500 text-lg md:text-xl text-center">Submit your details to receive the Google Drive access link instantly.</p>
                     </div>
-                    <div class="space-y-2">
-                        <label class="block text-sm font-bold text-gray-700 ml-1">Email Address</label>
-                        <input type="email" name="entry.67890" placeholder="john@example.com" required class="w-full px-6 py-5 border border-gray-200 rounded-2xl bg-gray-50 transition-all focus:bg-white text-lg focus:ring-4 focus:ring-purple-100">
-                    </div>
-                    <div class="space-y-2">
-                        <label class="block text-sm font-bold text-gray-700 ml-1">Mobile Number</label>
-                        <input type="tel" name="entry.11223" placeholder="0400 000 000" required class="w-full px-6 py-5 border border-gray-200 rounded-2xl bg-gray-50 transition-all focus:bg-white text-lg focus:ring-4 focus:ring-purple-100">
-                    </div>
+                    
+                    <form 
+                        id="report-form"
+                        action="https://formspree.io/f/mgopbadl" 
+                        method="POST" 
+                        class="space-y-6"
+                    >
+                        <input type="hidden" name="_subject" value="New Lead: Melbourne Growth Report">
+                        
+                        <div class="space-y-2">
+                            <label class="block text-sm font-bold text-gray-700 ml-1">Full Name</label>
+                            <input type="text" name="name" placeholder="John Doe" required class="w-full px-6 py-5 border border-gray-200 rounded-2xl bg-gray-50 transition-all focus:bg-white text-lg focus:ring-4 focus:ring-purple-100">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-bold text-gray-700 ml-1">Email Address</label>
+                            <input type="email" name="email" placeholder="john@example.com" required class="w-full px-6 py-5 border border-gray-200 rounded-2xl bg-gray-50 transition-all focus:bg-white text-lg focus:ring-4 focus:ring-purple-100">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-bold text-gray-700 ml-1">Mobile Number</label>
+                            <input type="tel" name="phone" placeholder="0400 000 000" required class="w-full px-6 py-5 border border-gray-200 rounded-2xl bg-gray-50 transition-all focus:bg-white text-lg focus:ring-4 focus:ring-purple-100">
+                        </div>
 
-                    <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-6 px-6 rounded-2xl text-xl transition-all shadow-2xl shadow-purple-200 flex justify-center items-center group mt-4">
-                        <span id="btn-text">Get Access Now</span>
-                        <i data-lucide="chevron-right" class="ml-2 w-7 h-7 group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                </form>
+                        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-6 px-6 rounded-2xl text-xl transition-all shadow-2xl shadow-purple-200 flex justify-center items-center group mt-4">
+                            <span id="btn-text">Get Instant Access</span>
+                            <i data-lucide="chevron-right" class="ml-2 w-7 h-7 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FINAL CTA / FOOTER -->
+    <!-- FOOTER -->
     <footer class="bg-gray-950 text-white py-32">
         <div class="w-full px-4 max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-6xl font-bold mb-10 tracking-tight text-center">Ready to build your <br> <span class="text-purple-500">Melbourne Portfolio?</span></h2>
@@ -246,8 +248,37 @@
     </footer>
 
     <script>
-        var submitted = false;
         lucide.createIcons();
+
+        const form = document.getElementById('report-form');
+        const successOverlay = document.getElementById('success-overlay');
+        const btnText = document.getElementById('btn-text');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            btnText.innerText = 'Verifying...';
+            
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    successOverlay.classList.remove('hidden');
+                    successOverlay.scrollIntoView({behavior: 'smooth', block: 'center'});
+                } else {
+                    alert('Submission error. Please check your details.');
+                    btnText.innerText = 'Get Instant Access';
+                }
+            } catch (error) {
+                alert('Connection error.');
+                btnText.innerText = 'Get Instant Access';
+            }
+        });
     </script>
 </body>
 </html>
