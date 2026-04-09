@@ -210,9 +210,15 @@
                     >
                         <input type="hidden" name="_subject" value="New Lead: Melbourne Growth Report">
                         
-                        <div class="space-y-2">
-                            <label class="block text-sm font-bold text-gray-700 ml-1">Full Name</label>
-                            <input type="text" name="name" placeholder="John Doe" required class="w-full px-6 py-5 border border-gray-200 rounded-2xl bg-gray-50 transition-all focus:bg-white text-lg focus:ring-4 focus:ring-purple-100">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="block text-sm font-bold text-gray-700 ml-1">First Name</label>
+                                <input type="text" name="first_name" placeholder="John" required class="w-full px-6 py-5 border border-gray-200 rounded-2xl bg-gray-50 transition-all focus:bg-white text-lg focus:ring-4 focus:ring-purple-100">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="block text-sm font-bold text-gray-700 ml-1">Last Name</label>
+                                <input type="text" name="last_name" placeholder="Doe" required class="w-full px-6 py-5 border border-gray-200 rounded-2xl bg-gray-50 transition-all focus:bg-white text-lg focus:ring-4 focus:ring-purple-100">
+                            </div>
                         </div>
                         <div class="space-y-2">
                             <label class="block text-sm font-bold text-gray-700 ml-1">Email Address</label>
