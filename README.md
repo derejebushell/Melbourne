@@ -180,7 +180,6 @@
                     <p class="text-gray-500 text-lg mb-10">Access your high-growth report via the Google Drive link below.</p>
                     
                     <div class="flex flex-col gap-4 w-full">
-                        <!-- DIRECT GOOGLE DRIVE LINK INTEGRATED -->
                         <a href="https://drive.google.com/file/d/1l4HxQyXlKuEemFisSipbisGNzbkNb6-E/view?usp=sharing" target="_blank" class="w-full bg-purple-600 text-white font-bold py-5 rounded-2xl text-lg flex items-center justify-center gap-2 hover:bg-purple-700 transition-all">
                             <i data-lucide="external-link" class="w-5 h-5"></i>
                             Open Report in Drive
@@ -252,15 +251,13 @@
             <div class="pt-8 border-t border-gray-800 flex flex-col items-center gap-6">
                 <p class="text-gray-500 font-bold uppercase tracking-widest text-xs">Follow for market updates</p>
                 <a href="https://www.instagram.com/djpropertypro?igsh=MWZxOWE1ZW4zaWhnZg%3D%3D&utm_source=qr" target="_blank" class="flex flex-col md:flex-row items-center gap-4 text-white hover:text-purple-400 transition-colors group">
-                    <!-- Updated Profile Image Integration -->
                     <div class="relative">
-                        <!-- Converted Google Drive URL to direct image stream for the profile image -->
-                        <img src="https://lh3.googleusercontent.com/d/1cPMr-eyUQ6LkcuvrypkDWaYUrABVPrwF" alt="DJ Property Pro" class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gray-800 group-hover:border-purple-400 transition-colors object-cover shadow-lg">
+                        <img src="https://lh3.googleusercontent.com/d/1cPMr-eyUQ6LkcuvrypkDWaYUrABVPrwF=s400" alt="DJ Property Pro" class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-gray-800 group-hover:border-purple-400 transition-colors object-cover shadow-lg">
                         <div class="absolute -bottom-1 -right-1 bg-purple-600 rounded-full p-1 border-2 border-gray-950">
                             <i data-lucide="instagram" class="w-3 h-3 md:w-4 md:h-4"></i>
                         </div>
                     </div>
-                    <span class="text-xl md:text-2xl font-bold tracking-tight">@djpropertypro</span>
+                    <span class="text-lg md:text-xl font-bold tracking-tight">@djpropertypro</span>
                 </a>
             </div>
         </div>
