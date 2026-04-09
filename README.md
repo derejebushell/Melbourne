@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>10 Melbourne Suburbs Under $700k | High Growth Report</title>
+    <title>High Growth Report | Melbourne Under $700k</title>
     
     <!-- Modern Sans-Serif Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,12 +32,19 @@
         }
     </script>
     <style>
+        /* Force the removal of any browser spacing */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         html, body {
             margin: 0 !important;
             padding: 0 !important;
             width: 100% !important;
             overflow-x: hidden;
+            position: relative;
+            top: 0;
+            background-color: white;
         }
+
         input:focus {
             outline: none;
             box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.2);
@@ -46,7 +53,6 @@
         .bg-grid {
             mask-image: linear-gradient(to bottom, black, transparent);
         }
-        /* Custom card styling for the 'standalone' row feel */
         .data-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -58,14 +64,14 @@
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-white antialiased">
+    <div id="top"></div>
 
     <!-- HERO SECTION -->
-    <header class="relative min-h-[60vh] flex items-center pt-16 pb-20 overflow-hidden border-b border-gray-100 bg-white">
+    <header class="relative min-h-[50vh] flex items-center pt-24 pb-20 overflow-hidden border-b border-gray-100 bg-white">
         <div class="absolute inset-0 z-0 opacity-[0.05] pointer-events-none bg-grid" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
         
         <div class="w-full px-4 md:px-8 relative z-10">
             <div class="max-w-6xl mx-auto text-center">
-                <!-- Brand Badge: Updated to "2026" -->
                 <div class="inline-block px-5 py-2 mb-6 text-sm font-black tracking-[0.4em] text-purple-600 uppercase bg-purple-50 rounded-full">
                     2026
                 </div>
@@ -73,15 +79,9 @@
                     10 Melbourne Suburbs Under $700k <br class="hidden lg:block">
                     <span class="text-purple-600">Outperforming The Market</span>
                 </h1>
-                <p class="text-lg md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                <p class="text-lg md:text-2xl text-gray-600 mb-0 max-w-3xl mx-auto leading-relaxed font-light">
                     Stop overpaying in blue-chip areas. We've identified the high-yield corridors recording <span class="font-semibold text-gray-900">10%+ growth</span> in the last 12 months.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button onclick="document.getElementById('lead-capture').scrollIntoView({behavior:'smooth'})" class="w-full sm:w-auto inline-flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-5 px-12 rounded-2xl text-xl transition-all duration-300 shadow-[0_20px_50px_rgba(147,51,234,0.3)] hover:-translate-y-1">
-                        Get The Full Breakdown
-                        <i data-lucide="arrow-right" class="ml-2 w-6 h-6"></i>
-                    </button>
-                </div>
             </div>
         </div>
     </header>
@@ -95,7 +95,6 @@
             </div>
             
             <div class="space-y-4">
-                <!-- Data Row 1: Frankston North -->
                 <div class="data-card bg-white border border-gray-100 p-6 md:p-8 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
                     <div class="flex items-center gap-6">
                         <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 flex-shrink-0">
@@ -118,7 +117,6 @@
                     </div>
                 </div>
 
-                <!-- Data Row 2: Melton South -->
                 <div class="data-card bg-white border border-gray-100 p-6 md:p-8 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
                     <div class="flex items-center gap-6">
                         <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 flex-shrink-0">
@@ -141,7 +139,6 @@
                     </div>
                 </div>
 
-                <!-- Placeholder Row -->
                 <div class="bg-gray-50/50 border border-dashed border-gray-200 p-6 md:p-8 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6 opacity-60">
                     <div class="flex items-center gap-6 blur-[4px]">
                         <div class="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center text-gray-400 flex-shrink-0">
@@ -156,12 +153,16 @@
                     </div>
                 </div>
 
-                <!-- Strategic CTA Integration -->
-                <div class="pt-8 text-center">
-                    <button onclick="document.getElementById('lead-capture').scrollIntoView({behavior:'smooth'})" class="inline-flex items-center justify-center gap-2 text-purple-600 font-extrabold text-lg hover:text-purple-700 transition-colors group">
-                        Unlock Remaining 8 High-Growth Suburbs 
-                        <i data-lucide="chevron-down" class="w-5 h-5 group-hover:translate-y-1 transition-transform"></i>
+                <!-- Strategic CTA underneath preview table -->
+                <div class="pt-12 text-center">
+                    <button onclick="document.getElementById('lead-capture').scrollIntoView({behavior:'smooth'})" class="w-full sm:w-auto inline-flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-5 px-12 rounded-2xl text-xl transition-all duration-300 shadow-[0_20px_50px_rgba(147,51,234,0.3)] hover:-translate-y-1">
+                        Get The Full Breakdown
+                        <i data-lucide="arrow-right" class="ml-2 w-6 h-6"></i>
                     </button>
+                    <p class="mt-6 text-gray-400 font-medium text-sm flex items-center justify-center gap-2">
+                        <i data-lucide="unlock" class="w-4 h-4"></i>
+                        Unlock remaining 8 high-growth locations
+                    </p>
                 </div>
             </div>
         </div>
