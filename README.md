@@ -1,301 +1,562 @@
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>High Growth Report | Melbourne Under $700k</title>
-    
-    <!-- Modern Sans-Serif Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMSF Property Strategy Guide | Quantum Buyers Agents</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        purple: {
-                            50: '#faf5ff',
-                            600: '#9333ea', 
-                            700: '#7e22ce',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html, body {
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100% !important;
-            overflow-x: hidden;
-            position: relative;
-            top: 0;
-            background-color: white;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #000000;
+      scroll-behavior: smooth;
+    }
 
-        input:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.2);
-            border-color: #9333ea;
-        }
-        .bg-grid {
-            mask-image: linear-gradient(to bottom, black, transparent);
-        }
-        .data-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .data-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
-            border-color: #9333ea;
-        }
-    </style>
+    .section-block {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+      border-bottom: 1px solid #ece7e1;
+    }
+
+    .section-block:last-child {
+      border-bottom: none;
+    }
+
+    .premium-card {
+      background: #ffffff;
+      border: 1px solid #d9d3cb;
+      transition: all 0.25s ease;
+    }
+
+    .premium-card:hover {
+      border-color: #7a3e04;
+      transform: translateY(-2px);
+    }
+
+    .nav-link {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: #7a3e04;
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .accent-line {
+      width: 48px;
+      height: 2px;
+      background: #7a3e04;
+    }
+
+    .chart-wrap {
+      position: relative;
+      width: 100%;
+      height: 320px;
+    }
+  </style>
 </head>
-<body class="font-sans text-gray-800 bg-white antialiased">
-    <div id="top"></div>
+<body class="antialiased">
+  <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 bg-black rounded-sm flex items-center justify-center">
+          <div class="w-4 h-4 border border-[#7a3e04] rotate-45"></div>
+        </div>
+        <div>
+          <div class="text-[10px] uppercase tracking-[0.28em] text-stone-500 font-semibold">Quantum Buyers Agents</div>
+          <div class="text-sm font-bold tracking-tight text-black">Property Strategy</div>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-[11px] uppercase tracking-[0.2em] text-stone-500 font-semibold">
+        <a href="#overview" class="nav-link hover:text-black">Overview</a>
+        <a href="#rules" class="nav-link hover:text-black">Rules</a>
+        <a href="#borrowing" class="nav-link hover:text-black">Borrowing</a>
+        <a href="#process" class="nav-link hover:text-black">Process</a>
+        <a href="#contact" class="nav-link hover:text-black">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- HERO SECTION -->
-    <header class="relative min-h-[50vh] flex items-center pt-24 pb-20 overflow-hidden border-b border-gray-100 bg-white">
-        <div class="absolute inset-0 z-0 opacity-[0.05] pointer-events-none bg-grid" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-        
-        <div class="w-full px-4 md:px-8 relative z-10">
-            <div class="max-w-6xl mx-auto text-center">
-                <div class="inline-block px-5 py-2 mb-6 text-sm font-black tracking-[0.4em] text-purple-600 uppercase bg-purple-50 rounded-full">
-                    2026
+  <header class="relative pt-36 pb-24 md:pt-48 md:pb-32 bg-black overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.08]" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 34px 34px;"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="max-w-4xl">
+        <p class="text-[#b0a395] text-xs uppercase tracking-[0.32em] font-bold mb-6">SMSF Property Guide</p>
+        <h1 class="text-white text-5xl md:text-7xl font-extrabold leading-[1.02] tracking-tight mb-8">
+          SMSF Property<br />
+          <span class="text-stone-400">Strategy Guide</span>
+        </h1>
+        <div class="accent-line mb-8"></div>
+        <p class="text-xl md:text-2xl text-stone-300 font-light leading-relaxed max-w-3xl mb-10">
+          How high income Australians are using super to acquire property assets strategically. Structured. Compliant. Long term focused.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 max-w-4xl">
+          <div class="border border-white/10 bg-white/5 p-4">
+            <div class="text-[10px] uppercase tracking-[0.24em] text-stone-500 font-bold mb-2">Built for</div>
+            <div class="text-white font-semibold">Investors seeking control over retirement outcomes</div>
+          </div>
+          <div class="border border-white/10 bg-white/5 p-4">
+            <div class="text-[10px] uppercase tracking-[0.24em] text-stone-500 font-bold mb-2">Focus</div>
+            <div class="text-white font-semibold">Education first. Strategy second. Compliance always.</div>
+          </div>
+          <div class="border border-white/10 bg-white/5 p-4">
+            <div class="text-[10px] uppercase tracking-[0.24em] text-stone-500 font-bold mb-2">Important</div>
+            <div class="text-white font-semibold">General information only. Not financial advice.</div>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#contact" class="inline-flex items-center justify-center bg-[#7a3e04] hover:bg-[#643200] text-white px-7 py-4 text-sm font-bold uppercase tracking-[0.18em] transition-colors">Book a Strategy Call</a>
+          <a href="#process" class="inline-flex items-center justify-center border border-white/15 text-white hover:bg-white hover:text-black px-7 py-4 text-sm font-bold uppercase tracking-[0.18em] transition-colors">See the Process</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="overview" class="section-block max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div class="lg:col-span-4">
+          <p class="text-[#7a3e04] text-xs uppercase tracking-[0.28em] font-bold mb-5">Overview</p>
+          <h2 class="text-4xl font-bold text-black mb-6">Before You Go Further</h2>
+          <p class="text-stone-600 leading-relaxed font-light mb-6">
+            SMSF property is one of the most regulated strategies in Australia. Done correctly, it can be powerful. Done incorrectly, it can be expensive.
+          </p>
+          <p class="text-stone-600 leading-relaxed font-light">
+            This page is designed to help you understand the structure, the rules, the costs, and the process before making any decisions.
+          </p>
+        </div>
+        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="premium-card p-10 border-l-4 border-l-[#7a3e04]">
+            <div class="text-[10px] uppercase tracking-[0.24em] text-stone-400 font-bold mb-5">What this does</div>
+            <h3 class="text-2xl font-bold mb-5">What this guide covers</h3>
+            <ul class="space-y-4 text-stone-600 text-sm font-light">
+              <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-[#7a3e04] rounded-full mt-2"></span><span>How SMSF property investment works in plain English</span></li>
+              <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-[#7a3e04] rounded-full mt-2"></span><span>The major compliance rules you need to understand</span></li>
+              <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-[#7a3e04] rounded-full mt-2"></span><span>The professionals involved and where each one fits</span></li>
+            </ul>
+          </div>
+          <div class="premium-card p-10 border-l-4 border-l-black">
+            <div class="text-[10px] uppercase tracking-[0.24em] text-stone-400 font-bold mb-5">What to do first</div>
+            <h3 class="text-2xl font-bold mb-5">Start with the right advice</h3>
+            <ul class="space-y-4 text-stone-600 text-sm font-light">
+              <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-black rounded-full mt-2"></span><span>Speak with a licensed financial planner</span></li>
+              <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-black rounded-full mt-2"></span><span>Confirm your structure with a qualified SMSF accountant</span></li>
+              <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-black rounded-full mt-2"></span><span>Then bring in your mortgage broker for the borrowing side</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-14 border border-stone-200 bg-stone-50 p-8">
+        <p class="text-sm text-stone-600 leading-relaxed text-center">
+          This is general information only. It is not financial, tax, or legal advice, and it is not a recommendation to establish an SMSF or purchase property through one.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-block bg-black text-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-20 max-w-3xl mx-auto">
+          <p class="text-[#b0a395] text-xs uppercase tracking-[0.28em] font-bold mb-4">Structure</p>
+          <h2 class="text-4xl font-bold mb-6">What Is an SMSF?</h2>
+          <div class="accent-line mx-auto mb-6"></div>
+          <p class="text-stone-400 font-light leading-relaxed">
+            A Self Managed Super Fund gives you control over how your super is invested. Instead of a large super fund making the investment decisions, you and the fund members do.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div class="border-t border-white/15 pt-8">
+            <div class="text-[#b0a395] text-xs uppercase tracking-[0.24em] font-bold mb-4">01. Control</div>
+            <h3 class="text-xl font-bold mb-4">You choose the assets</h3>
+            <p class="text-sm text-stone-400 font-light">That may include cash, shares, term deposits, and in some cases residential property.</p>
+          </div>
+          <div class="border-t border-white/15 pt-8">
+            <div class="text-[#b0a395] text-xs uppercase tracking-[0.24em] font-bold mb-4">02. Members</div>
+            <h3 class="text-xl font-bold mb-4">Up to six people</h3>
+            <p class="text-sm text-stone-400 font-light">Family members can pool their balances together and invest through one fund.</p>
+          </div>
+          <div class="border-t border-white/15 pt-8">
+            <div class="text-[#b0a395] text-xs uppercase tracking-[0.24em] font-bold mb-4">03. Strategy</div>
+            <h3 class="text-xl font-bold mb-4">Long term focus</h3>
+            <p class="text-sm text-stone-400 font-light">The asset must be held to support retirement outcomes, not for personal use or convenience.</p>
+          </div>
+          <div class="border-t border-white/15 pt-8">
+            <div class="text-[#b0a395] text-xs uppercase tracking-[0.24em] font-bold mb-4">04. Compliance</div>
+            <h3 class="text-xl font-bold mb-4">The rules are strict</h3>
+            <p class="text-sm text-stone-400 font-light">This is not an area to improvise. Your accountant and legal team matter.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rules" class="section-block max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-[#7a3e04] text-xs uppercase tracking-[0.28em] font-bold mb-4">Compliance</p>
+        <h2 class="text-4xl font-bold mb-6">The Rules You Need to Know</h2>
+        <p class="text-stone-600 font-light leading-relaxed">
+          Most people do not get caught out by the market. They get caught out by the rules. These are the foundations that sit behind every compliant SMSF property purchase.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-200 border border-stone-200">
+        <div class="bg-white p-10">
+          <h3 class="text-xl font-bold mb-4">Sole Purpose Test</h3>
+          <p class="text-sm text-stone-600 font-light leading-relaxed">The property must be held only for retirement purposes. That is the starting point for everything.</p>
+        </div>
+        <div class="bg-white p-10">
+          <h3 class="text-xl font-bold mb-4">No Personal Use</h3>
+          <p class="text-sm text-stone-600 font-light leading-relaxed">You cannot live in the property, holiday in it, or allow relatives to use it.</p>
+        </div>
+        <div class="bg-white p-10">
+          <h3 class="text-xl font-bold mb-4">Arms Length Tenancy</h3>
+          <p class="text-sm text-stone-600 font-light leading-relaxed">It must be rented to an unrelated tenant at market rent under normal commercial terms.</p>
+        </div>
+        <div class="bg-white p-10">
+          <h3 class="text-xl font-bold mb-4">Third Party Purchase</h3>
+          <p class="text-sm text-stone-600 font-light leading-relaxed">The property must be purchased from an unrelated seller, not you, not family, and not a related entity.</p>
+        </div>
+        <div class="bg-white p-10">
+          <h3 class="text-xl font-bold mb-4">Fund Separation</h3>
+          <p class="text-sm text-stone-600 font-light leading-relaxed">All income, expenses, and repayments must flow through the SMSF bank account, not your personal accounts.</p>
+        </div>
+        <div class="bg-[#7a3e04] p-10 flex items-center">
+          <p class="text-white text-xs uppercase tracking-[0.2em] leading-loose font-bold">
+            Breaking these rules can trigger penalties, tax consequences, and serious compliance issues for the fund.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="borrowing" class="section-block bg-stone-50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          <div class="lg:col-span-5">
+            <p class="text-[#7a3e04] text-xs uppercase tracking-[0.28em] font-bold mb-5">Borrowing</p>
+            <h2 class="text-4xl font-bold mb-6">How the Borrowing Works</h2>
+            <p class="text-stone-600 font-light leading-relaxed mb-8">
+              Most SMSF property purchases that involve finance are done through an LRBA, or Limited Recourse Borrowing Arrangement. It sounds technical, but the idea is simple.
+            </p>
+
+            <div class="premium-card p-8 bg-white mb-8">
+              <div class="text-[10px] uppercase tracking-[0.24em] text-stone-400 font-bold mb-4">In plain English</div>
+              <ul class="space-y-4 text-sm text-stone-700 font-light">
+                <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-[#7a3e04] rounded-full mt-2"></span><span>Your SMSF is buying the property</span></li>
+                <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-[#7a3e04] rounded-full mt-2"></span><span>The bank lends to the SMSF under a specific structure</span></li>
+                <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-[#7a3e04] rounded-full mt-2"></span><span>If things go wrong, the lender is generally limited to that property only</span></li>
+              </ul>
+            </div>
+
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-11 h-11 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">01</div>
+                <div>
+                  <h3 class="font-bold mb-2">A bare trust holds the title</h3>
+                  <p class="text-sm text-stone-600 font-light">A separate legal entity temporarily holds the property on trust for the SMSF until the loan is repaid.</p>
                 </div>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-[1.1] mb-8 tracking-tight">
-                    10 Melbourne Suburbs Under $700k <br class="hidden lg:block">
-                    <span class="text-purple-600">Outperforming The Market</span>
-                </h1>
-                <p class="text-lg md:text-2xl text-gray-600 mb-0 max-w-3xl mx-auto leading-relaxed font-light">
-                    Stop overpaying in blue-chip areas. We've identified the high-yield corridors recording <span class="font-semibold text-gray-900">10%+ growth</span> in the last 12 months.
+              </div>
+              <div class="flex gap-4">
+                <div class="w-11 h-11 bg-[#7a3e04] text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">02</div>
+                <div>
+                  <h3 class="font-bold mb-2">The funding rules are tighter</h3>
+                  <p class="text-sm text-stone-600 font-light">Interest rates are often higher, borrowing limits are more conservative, and major renovations generally cannot be funded through the LRBA.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="premium-card p-10 border-t-4 border-t-[#7a3e04] bg-white">
+              <div class="text-[10px] uppercase tracking-[0.24em] text-stone-400 font-bold text-center mb-6">Structure snapshot</div>
+              <div class="chart-wrap">
+                <canvas id="lrbaChart"></canvas>
+              </div>
+              <div class="mt-10 bg-black text-white p-8 rounded-sm">
+                <div class="text-[10px] uppercase tracking-[0.24em] text-[#b0a395] font-bold mb-4">Who sets this up</div>
+                <p class="text-sm text-stone-300 font-light leading-relaxed">
+                  Your accountant or lawyer handles the trust documents and legal structure. Your mortgage broker arranges the lending side and works with the lender to ensure the documentation is accepted before settlement.
                 </p>
+                <p class="mt-4 text-sm text-[#b0a395] font-semibold">
+                  This structure must be established correctly before settlement. It is not optional.
+                </p>
+              </div>
             </div>
+          </div>
         </div>
-    </header>
-
-    <!-- MARKET DATA COMPONENT -->
-    <section class="py-24 bg-white overflow-hidden">
-        <div class="w-full px-4 max-w-5xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Market Intelligence Preview</h2>
-                <p class="text-gray-500 text-lg md:text-xl">Each suburb has been vetted for infrastructure, yield, and historical capital growth.</p>
-            </div>
-            
-            <div class="space-y-4">
-                <div class="data-card bg-white border border-gray-100 p-6 md:p-8 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
-                    <div class="flex items-center gap-6">
-                        <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 flex-shrink-0">
-                            <i data-lucide="map-pin" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900 leading-none mb-1">Frankston North</h3>
-                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Growth Corridor • SE Melbourne</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-8 md:gap-16">
-                        <div>
-                            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Median Price</p>
-                            <p class="text-2xl font-extrabold text-gray-900 tabular-nums">$595,000</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">12M Growth</p>
-                            <p class="text-2xl font-extrabold text-green-600 tabular-nums">+11.2%</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="data-card bg-white border border-gray-100 p-6 md:p-8 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
-                    <div class="flex items-center gap-6">
-                        <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 flex-shrink-0">
-                            <i data-lucide="map-pin" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900 leading-none mb-1">Melton South</h3>
-                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Growth Corridor • W Melbourne</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-8 md:gap-16">
-                        <div>
-                            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Median Price</p>
-                            <p class="text-2xl font-extrabold text-gray-900 tabular-nums">$510,000</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">12M Growth</p>
-                            <p class="text-2xl font-extrabold text-green-600 tabular-nums">+10.5%</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gray-50/50 border border-dashed border-gray-200 p-6 md:p-8 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-6 opacity-60">
-                    <div class="flex items-center gap-6 blur-[4px]">
-                        <div class="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center text-gray-400 flex-shrink-0">
-                            <i data-lucide="lock" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900 leading-none">Confidential Location</h3>
-                        </div>
-                    </div>
-                    <div class="hidden md:block blur-[4px]">
-                        <p class="text-2xl font-extrabold text-gray-300 tabular-nums">$6XX,000</p>
-                    </div>
-                </div>
-
-                <div class="pt-12 text-center">
-                    <button onclick="document.getElementById('lead-capture').scrollIntoView({behavior:'smooth'})" class="w-full sm:w-auto inline-flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-5 px-12 rounded-2xl text-xl transition-all duration-300 shadow-[0_20px_50px_rgba(147,51,234,0.3)] hover:-translate-y-1">
-                        Get The Full Breakdown
-                        <i data-lucide="arrow-right" class="ml-2 w-6 h-6"></i>
-                    </button>
-                    <p class="mt-6 text-gray-400 font-medium text-sm flex items-center justify-center gap-2">
-                        <i data-lucide="unlock" class="w-4 h-4"></i>
-                        Unlock remaining 8 high-growth locations
-                    </p>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- LEAD CAPTURE SECTION -->
-    <section id="lead-capture" class="py-24 bg-white relative">
-        <div class="w-full px-4">
-            <div class="max-w-2xl mx-auto bg-white rounded-[2.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.12)] border border-gray-100 p-8 md:p-16 relative z-20 overflow-hidden">
-                
-                <!-- Success State Overlay -->
-                <div id="success-overlay" class="absolute inset-0 bg-white z-30 flex flex-col items-center justify-center p-8 text-center hidden">
-                    <div class="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-8">
-                        <i data-lucide="check-circle" class="w-12 h-12"></i>
-                    </div>
-                    <h2 class="text-3xl font-bold text-gray-900 mb-4">You're All Set!</h2>
-                    <p class="text-gray-500 text-lg mb-10">Access your high-growth report via the Google Drive link below.</p>
-                    
-                    <div class="flex flex-col gap-4 w-full">
-                        <!-- UPDATED GOOGLE DRIVE LINK -->
-                        <a href="https://drive.google.com/file/d/1tRJBrxo-MvqKAvFHN5LiHp-mJaUBgPj2/view?usp=sharing" target="_blank" class="w-full bg-purple-600 text-white font-bold py-5 rounded-2xl text-lg flex items-center justify-center gap-2 hover:bg-purple-700 transition-all">
-                            <i data-lucide="external-link" class="w-5 h-5"></i>
-                            Open Report in Drive
-                        </a>
-                        <a href="https://api.leadconnectorhq.com/widget/booking/WFDrmJtulBGxRVD7ZIDr" class="w-full bg-gray-50 text-purple-600 font-bold py-5 rounded-2xl text-lg flex items-center justify-center gap-2 hover:bg-gray-100 transition-all">
-                            <i data-lucide="calendar" class="w-5 h-5"></i>
-                            Book Strategy Session
-                        </a>
-                    </div>
-                </div>
+    <section id="process" class="section-block max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-[#7a3e04] text-xs uppercase tracking-[0.28em] font-bold mb-4">Process</p>
+        <h2 class="text-4xl font-bold mb-6">What This Looks Like in the Real World</h2>
+        <p class="text-stone-600 font-light leading-relaxed">
+          This is not a low cost shortcut. It is a structured long term wealth strategy, and the process needs to be handled in the right order.
+        </p>
+      </div>
 
-                <!-- Form Content -->
-                <div id="form-content">
-                    <div class="text-center mb-12">
-                        <div class="w-20 h-20 bg-purple-100 text-purple-600 rounded-3xl rotate-3 flex items-center justify-center mx-auto mb-8 transition-transform hover:rotate-0">
-                            <i data-lucide="mail-check" class="w-10 h-10"></i>
-                        </div>
-                        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight text-center">Access The Report</h2>
-                        <p class="text-gray-500 text-lg md:text-xl text-center">Submit your details to receive the Google Drive access link instantly.</p>
-                    </div>
-                    
-                    <form 
-                        id="report-form"
-                        action="https://formspree.io/f/mgopbadl" 
-                        method="POST" 
-                        class="space-y-6"
-                    >
-                        <input type="hidden" name="_subject" value="New Lead: Melbourne Growth Report">
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label class="block text-sm font-bold text-gray-700 ml-1">First Name</label>
-                                <input type="text" name="first_name" placeholder="John" required class="w-full px-6 py-5 border border-gray-200 rounded-2xl bg-gray-50 transition-all focus:bg-white text-lg focus:ring-4 focus:ring-purple-100">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="block text-sm font-bold text-gray-700 ml-1">Last Name</label>
-                                <input type="text" name="last_name" placeholder="Doe" required class="w-full px-6 py-5 border border-gray-200 rounded-2xl bg-gray-50 transition-all focus:bg-white text-lg focus:ring-4 focus:ring-purple-100">
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="block text-sm font-bold text-gray-700 ml-1">Email Address</label>
-                            <input type="email" name="email" placeholder="john@example.com" required class="w-full px-6 py-5 border border-gray-200 rounded-2xl bg-gray-50 transition-all focus:bg-white text-lg focus:ring-4 focus:ring-purple-100">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="block text-sm font-bold text-gray-700 ml-1">Mobile Number</label>
-                            <input type="tel" name="phone" placeholder="0400 000 000" required class="w-full px-6 py-5 border border-gray-200 rounded-2xl bg-gray-50 transition-all focus:bg-white text-lg focus:ring-4 focus:ring-purple-100">
-                        </div>
-
-                        <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-6 px-6 rounded-2xl text-xl transition-all shadow-2xl shadow-purple-200 flex justify-center items-center group mt-4">
-                            <span id="btn-text">Get Instant Access</span>
-                            <i data-lucide="chevron-right" class="ml-2 w-7 h-7 group-hover:translate-x-1 transition-transform"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
+      <div class="space-y-4">
+        <div class="border border-stone-200 p-8 flex flex-col md:flex-row gap-8 items-center hover:border-[#7a3e04] hover:bg-stone-50 transition-colors">
+          <div class="text-5xl font-extrabold text-stone-200">01</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2">Get strategic advice first</h3>
+            <p class="text-sm text-stone-600 font-light">Start with your financial planner and SMSF accountant. Confirm whether this is suitable before you even think about property selection.</p>
+          </div>
         </div>
+        <div class="border border-stone-200 p-8 flex flex-col md:flex-row gap-8 items-center hover:border-[#7a3e04] hover:bg-stone-50 transition-colors">
+          <div class="text-5xl font-extrabold text-stone-200">02</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2">Build the fund position</h3>
+            <p class="text-sm text-stone-600 font-light">Ensure the SMSF has enough for the deposit, purchase costs, setup costs, and an ongoing buffer for vacancies and expenses.</p>
+          </div>
+        </div>
+        <div class="border border-stone-200 p-8 flex flex-col md:flex-row gap-8 items-center hover:border-[#7a3e04] hover:bg-stone-50 transition-colors">
+          <div class="text-5xl font-extrabold text-stone-200">03</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2">Sort the lending and legal structure</h3>
+            <p class="text-sm text-stone-600 font-light">Your broker, accountant, and legal team work together to prepare the LRBA and bare trust correctly before settlement.</p>
+          </div>
+        </div>
+        <div class="border border-stone-200 p-8 flex flex-col md:flex-row gap-8 items-center hover:border-[#7a3e04] hover:bg-stone-50 transition-colors">
+          <div class="text-5xl font-extrabold text-stone-200">04</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2">Source the right property</h3>
+            <p class="text-sm text-stone-600 font-light">The property needs to make sense from both a compliance perspective and an investment perspective, not just because it looks good on paper.</p>
+          </div>
+        </div>
+        <div class="border border-stone-200 p-8 flex flex-col md:flex-row gap-8 items-center hover:border-[#7a3e04] hover:bg-stone-50 transition-colors">
+          <div class="text-5xl font-extrabold text-stone-200">05</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold mb-2">Settle, manage, and stay compliant</h3>
+            <p class="text-sm text-stone-600 font-light">From there, the fund continues to manage rent, expenses, reporting, and annual audit obligations through the correct SMSF channels.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-gray-950 text-white pt-32 pb-16">
-        <div class="w-full px-4 max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-6xl font-bold mb-10 tracking-tight text-center">Ready to build your <br> <span class="text-purple-500">Melbourne Portfolio?</span></h2>
-            <p class="text-xl text-gray-400 mb-14 leading-relaxed font-light text-center">Stop guessing. Use institutional-grade data to acquire high-yield assets before the next rate cycle.</p>
-            <a href="https://api.leadconnectorhq.com/widget/booking/WFDrmJtulBGxRVD7ZIDr" class="inline-block bg-white text-gray-900 font-extrabold py-6 px-16 rounded-2xl text-xl hover:bg-purple-50 transition-all shadow-2xl hover:scale-105 mb-16">
-                Book Free Strategy Session
-            </a>
-            
-            <!-- Instagram Link Section -->
-            <div class="pt-8 border-t border-gray-800 flex flex-col items-center gap-6">
-                <p class="text-gray-500 font-bold uppercase tracking-widest text-xs">Follow for market updates</p>
-                <a href="https://www.instagram.com/djpropertypro?igsh=MWZxOWE1ZW4zaWhnZg%3D%3D&utm_source=qr" target="_blank" class="flex flex-col md:flex-row items-center gap-4 text-white hover:text-purple-400 transition-colors group">
-                    <div class="relative">
-                        <img src="https://lh3.googleusercontent.com/d/1cPMr-eyUQ6LkcuvrypkDWaYUrABVPrwF=s400" alt="DJ Property Pro" class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-gray-800 group-hover:border-purple-400 transition-colors object-cover shadow-lg">
-                        <div class="absolute -bottom-1 -right-1 bg-purple-600 rounded-full p-1 border-2 border-gray-950">
-                            <i data-lucide="instagram" class="w-3 h-3 md:w-4 md:h-4"></i>
-                        </div>
-                    </div>
-                    <span class="text-lg md:text-xl font-bold tracking-tight">@djpropertypro</span>
-                </a>
-            </div>
+    <section class="section-block bg-black text-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <p class="text-[#b0a395] text-xs uppercase tracking-[0.28em] font-bold mb-4">Costs</p>
+          <h2 class="text-4xl font-bold mb-6">What Does It Cost?</h2>
+          <div class="accent-line mx-auto mb-6"></div>
+          <p class="text-stone-400 font-light leading-relaxed">
+            This is not a low cost strategy. It is a long term wealth strategy. Most investors only look seriously at this once they have a meaningful super balance and a clear reason for doing it.
+          </p>
         </div>
-    </footer>
 
-    <script>
-        lucide.createIcons();
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-10">
+            <div class="border-l-2 border-[#7a3e04] pl-8">
+              <div class="text-4xl font-bold mb-2">$3K+</div>
+              <h3 class="text-lg font-bold text-[#b0a395] mb-2">Setup costs</h3>
+              <p class="text-sm text-stone-400 font-light">SMSF establishment, trust structuring, and related legal documentation can vary depending on complexity.</p>
+            </div>
+            <div class="border-l-2 border-[#7a3e04] pl-8">
+              <div class="text-4xl font-bold mb-2">$2K+</div>
+              <h3 class="text-lg font-bold text-[#b0a395] mb-2">Annual running costs</h3>
+              <p class="text-sm text-stone-400 font-light">Accounting, audit, administration, and property management need to be budgeted for every year.</p>
+            </div>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="costChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        const form = document.getElementById('report-form');
-        const successOverlay = document.getElementById('success-overlay');
-        const btnText = document.getElementById('btn-text');
+    <section class="section-block max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-[#7a3e04] text-xs uppercase tracking-[0.28em] font-bold mb-4">Advisory team</p>
+        <h2 class="text-4xl font-bold mb-6">Who Does What?</h2>
+        <p class="text-stone-600 font-light leading-relaxed">Build your team correctly from day one. The strength of the structure depends heavily on the quality of the professionals around you.</p>
+      </div>
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            btnText.innerText = 'Verifying...';
-            
-            const formData = new FormData(form);
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="premium-card p-8">
+          <h3 class="text-xl font-bold mb-4">Financial Planner</h3>
+          <p class="text-sm text-stone-600 font-light">Assesses whether an SMSF property strategy aligns with your goals, balance, time frame, and broader financial position.</p>
+        </div>
+        <div class="premium-card p-8">
+          <h3 class="text-xl font-bold mb-4">SMSF Accountant</h3>
+          <p class="text-sm text-stone-600 font-light">Sets up the fund, manages compliance, coordinates audit requirements, and helps keep the structure operating correctly.</p>
+        </div>
+        <div class="premium-card p-8">
+          <h3 class="text-xl font-bold mb-4">Buyer's Agent</h3>
+          <p class="text-sm text-stone-600 font-light">Sources and secures investment grade properties that meet SMSF compliance requirements and long term growth objectives.</p>
+        </div>
+        <div class="premium-card p-8">
+          <h3 class="text-xl font-bold mb-4">Mortgage Broker</h3>
+          <p class="text-sm text-stone-600 font-light">Assesses borrowing feasibility, coordinates lender requirements, and manages the finance process through to settlement.</p>
+        </div>
+        <div class="premium-card p-8">
+          <h3 class="text-xl font-bold mb-4">Solicitor or Conveyancer</h3>
+          <p class="text-sm text-stone-600 font-light">Handles the legal side of the purchase and makes sure contracts, transfers, and settlement documents are structured correctly.</p>
+        </div>
+        <div class="bg-black text-white p-8 border-t-2 border-t-[#7a3e04] flex items-center justify-center text-center">
+          <p class="text-xs uppercase tracking-[0.2em] font-bold leading-loose">The decision to proceed should come from you, your planner, and your accountant first.</p>
+        </div>
+      </div>
+    </section>
 
-                if (response.ok) {
-                    successOverlay.classList.remove('hidden');
-                    successOverlay.scrollIntoView({behavior: 'smooth', block: 'center'});
-                } else {
-                    alert('Submission error. Please check your details.');
-                    btnText.innerText = 'Get Instant Access';
-                }
-            } catch (error) {
-                alert('Connection error.');
-                btnText.innerText = 'Get Instant Access';
+    <section class="section-block bg-stone-50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <p class="text-[#7a3e04] text-xs uppercase tracking-[0.28em] font-bold mb-4">Next step</p>
+          <h2 class="text-4xl font-bold mb-6">Where to From Here?</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
+          <div class="bg-white p-12">
+            <div class="text-[10px] uppercase tracking-[0.24em] text-stone-400 font-bold mb-6">Option A</div>
+            <h3 class="text-2xl font-bold mb-4">Still figuring it out?</h3>
+            <p class="text-sm text-stone-600 font-light leading-relaxed mb-8">Speak with your financial planner and SMSF accountant first. Their role is to help determine whether this strategy is appropriate before any property is selected.</p>
+            <ul class="space-y-4 text-sm text-stone-800 font-medium">
+              <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-[#7a3e04] rounded-full mt-2"></span><span>Understand the structure properly</span></li>
+              <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-[#7a3e04] rounded-full mt-2"></span><span>Get clarity on suitability and risk</span></li>
+              <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-[#7a3e04] rounded-full mt-2"></span><span>Make an informed decision before acting</span></li>
+            </ul>
+          </div>
+          <div class="bg-black text-white p-12">
+            <div class="text-[10px] uppercase tracking-[0.24em] text-stone-500 font-bold mb-6">Option B</div>
+            <h3 class="text-2xl font-bold mb-4">Ready to move?</h3>
+            <p class="text-sm text-stone-400 font-light leading-relaxed mb-8">Once you have the green light from your planner and accountant, the next step is to assess feasibility, finance, and suitable property options.</p>
+            <ul class="space-y-5 text-sm font-light">
+              <li class="flex gap-4"><span class="text-[#b0a395] font-bold">01.</span><span>Confirm your borrowing position</span></li>
+              <li class="flex gap-4"><span class="text-[#b0a395] font-bold">02.</span><span>Map the right property criteria</span></li>
+              <li class="flex gap-4"><span class="text-[#b0a395] font-bold">03.</span><span>Build the right team around the transaction</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-block max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-[#7a3e04] text-xs uppercase tracking-[0.28em] font-bold mb-4">Contact</p>
+        <h2 class="text-4xl font-bold mb-6">Book a Strategy Conversation</h2>
+        <p class="text-stone-600 font-light leading-relaxed">Build your team correctly from day one. Start with a conversation about feasibility, structure, and the type of property that may suit your broader plan.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="premium-card p-8">
+          <div class="text-[10px] uppercase tracking-[0.24em] text-stone-400 font-bold mb-5">Buyer's Agent</div>
+          <h3 class="text-xl font-bold mb-1">Dereje Bushell</h3>
+          <p class="text-sm text-stone-500 mb-6">Quantum Buyers Agents</p>
+          <div class="space-y-2 text-sm text-stone-700">
+            <a href="tel:0427338105" class="block hover:text-[#7a3e04]">0427 338 105</a>
+            <a href="mailto:dereje@quantumbuyersagents.com" class="block hover:text-[#7a3e04] break-all">dereje@quantumbuyersagents.com</a>
+          </div>
+        </div>
+        <div class="premium-card p-8">
+          <div class="text-[10px] uppercase tracking-[0.24em] text-stone-400 font-bold mb-5">Mortgage Broker</div>
+          <h3 class="text-xl font-bold mb-1">Jason Kuan</h3>
+          <p class="text-sm text-stone-500 mb-6">Shern Advisory</p>
+          <div class="space-y-2 text-sm text-stone-700">
+            <a href="tel:0433147323" class="block hover:text-[#7a3e04]">0433 147 323</a>
+            <a href="mailto:jason@shernadvisory.com.au" class="block hover:text-[#7a3e04] break-all">jason@shernadvisory.com.au</a>
+          </div>
+        </div>
+        <div class="premium-card p-8">
+          <div class="text-[10px] uppercase tracking-[0.24em] text-stone-400 font-bold mb-5">Financial Planner</div>
+          <h3 class="text-xl font-bold mb-1">Ben Newman</h3>
+          <p class="text-sm text-stone-500 mb-6">Seedli</p>
+          <div class="space-y-2 text-sm text-stone-700">
+            <a href="tel:0450138587" class="block hover:text-[#7a3e04]">0450 138 587</a>
+            <a href="mailto:ben@seedli.com.au" class="block hover:text-[#7a3e04] break-all">ben@seedli.com.au</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-14 px-6 border-t border-stone-200">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="text-[11px] uppercase tracking-[0.14em] text-stone-400 leading-relaxed">
+        This page is general information only and should not be relied on as financial, legal, or tax advice. Individual circumstances vary and professional advice should always be obtained before making any decisions.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const lrbaCtx = document.getElementById('lrbaChart').getContext('2d');
+      new Chart(lrbaCtx, {
+        type: 'bar',
+        data: {
+          labels: ['SMSF Equity', 'LRBA Finance'],
+          datasets: [{
+            data: [25, 75],
+            backgroundColor: ['#b0a395', '#7a3e04'],
+            borderRadius: 6,
+            barThickness: 38
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false }
+          },
+          scales: {
+            x: {
+              display: false,
+              max: 100
+            },
+            y: {
+              grid: { display: false },
+              ticks: {
+                color: '#475b6d',
+                font: { size: 11, weight: '700' }
+              }
             }
-        });
-    </script>
+          }
+        }
+      });
+
+      const costCtx = document.getElementById('costChart').getContext('2d');
+      new Chart(costCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Setup', 'Ongoing Admin', 'Property Management'],
+          datasets: [{
+            data: [40, 35, 25],
+            backgroundColor: ['#7a3e04', '#475b6d', '#b0a395'],
+            borderColor: '#000000',
+            borderWidth: 3
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '76%',
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                color: '#d6d3d1',
+                font: { size: 11, weight: '700' },
+                padding: 20
+              }
+            }
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
